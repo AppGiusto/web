@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'paperclip'
+gem 'protected_attributes'
+gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git" 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'

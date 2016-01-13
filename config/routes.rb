@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
+  
+  get 'profiles/:id' => 'profiles#show', as: :profile
+  get 'profile' => 'profiles#index'
+
+
   root 'static_pages#home'
 
   get 'about' => 'static_pages#about'
@@ -20,8 +25,8 @@ Rails.application.routes.draw do
 
   get 'contact' => 'static_pages#contact'
 
-   get 'profile/:id' => 'profile#show', as: :profile
-  get 'profile' => 'profile#index'
+
+ 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

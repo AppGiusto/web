@@ -1,0 +1,17 @@
+
+<h1>All Profiles</h1> <!-- All User Profiles Listed Here -->
+
+
+<% @users.each do |user| %>
+<div class="grid">	
+	<%= image_tag user.avatar.url(:thumb) %>
+	<h3><%= link_to user.name, profile_path(user) %></h3>
+
+</div>
+<% end %>
+
+
+
+
+
+
