@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'cancan'
 gem 'protected_attributes'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git" 
 gem 'devise'

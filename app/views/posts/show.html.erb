@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @post.message %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.time_to_post %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @post.date_to_post %>
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <%= @post.audience %>
+</p>
+
+<p>
+  <strong>Prep time:</strong>
+  <%= @post.location %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

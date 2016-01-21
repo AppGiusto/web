@@ -1,7 +1,9 @@
 
 <h1>My Profile</h1> <!--Individual Profiles Showing Here -->
-<p></p>
-
+<p>Name: <%= @user.name %></p>
+<p>Email: <%= @user.email %></p>
+<p>Zip Code: <%= @user.zip_code %></p>
+<p><%= image_tag @user.image.url(:thumb) %> </p>
 
 <%= link_to "Edit my profile", edit_user_registration_path %>
 

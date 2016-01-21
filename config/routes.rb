@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :posts
   
   get 'profiles/:id' => 'profiles#show', as: :profile
   get 'profile' => 'profiles#index'
