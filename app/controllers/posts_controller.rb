@@ -6,24 +6,28 @@ class PostsController < ApplicationController
   end
 
   def show
-
+ 
   end
 
   def edit
-  end
-
-  def new
     @post = Post.new
   end
 
-  def _form
+  def new
+    @user = User.new
   end
+
+  def _form
+
+  end
+
+ 
 
   def create
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
+      if @user.save
         format.html { redirect_to root_path, notice: 'Post was sucessfully posted.' }
       else 
         format.html {render :new}
@@ -50,14 +54,18 @@ class PostsController < ApplicationController
 
 private
 
-def set_post
-  @post = Post.find(params[:id])
-end
+  def set_post
+    @post = Post.find(params[:id])
+    end
+  end
 
-def post_params
-  params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location, :image)
-end
+  def post_params
+   params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location)
+    end
+  
 
 
-end
+
+
+
 

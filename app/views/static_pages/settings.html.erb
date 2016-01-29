@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <%= provide(:title, "Settings") %>
 
-<h1>StaticPages#settings</h1>
-<p>Find me in app/views/static_pages/settings.html.erb</p>
+<h1>Settings</h1>
+<p>Profile</p>
+	<ul>
+ 		<li><%= link_to "My Profile", profile_path(current_user), class: "btn-btn-primary" %></li>
+ 		<li><%= link_to "Edit Profile", edit_user_registration_path, class: "btn-btn-primary" %></li>
+ 	</ul>
+

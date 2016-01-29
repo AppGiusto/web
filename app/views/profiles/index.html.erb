@@ -1,9 +1,10 @@
 
-<h1>All Profiles</h1> <!-- All User Profiles Listed Here -->
+<h1>All Customer Profiles</h1> <!-- All User Profiles Listed Here -->
 
 
 	<% @users.each do |user| %>
-	<div class="grid">	
+	<div class="row">
+		<div class="col-md-4"</div>	
 		<%= image_tag (user.image.url(:thumb)) %>
 		<p><%= link_to user.name, profile_path(user) %></p>
 

@@ -10,28 +10,41 @@
       </ul>
     </div>
   <% end %>
+<form class="form-horizontal">
+  <div class="form-group">
+      <label for="Message" class="col-sm-2 control-label">Message</label>
+      <div class="col-sm-10">
+      <input type="message" class="form-control" id="message" placeholder="Message"></br>
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :message %><br>
-    <%= f.text_area :message %>
+  <div class="form-group">
+      <label for="Time to Post" class="col-sm-2 control-label">Time To Post</label>
+      <div class="col-sm-10">
+      <input type="time_to_post" class="form-control" id="time_to_post" placeholder="What time do you want this message to post?"></br>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :time_to_post %><br>
-    <%= f.text_field :time_to_post %>
-  </div>
-  <div class="field">
-    <%= f.label :date_to_post %><br>
-    <%= f.text_field :date_to_post %>
-  </div>
-  <div class="field">
-    <%= f.label :audience %><br>
-    <%= f.text_field :audience %>
-  </div>
-  <div class="field">
-    <%= f.label :location %><br>
-    <%= f.text_field :location %>
-  </div>
+
+  <div class="form-group">
+      <label for="Date To Post" class="col-sm-2 control-label">Date To Post</label>
+      <div class="col-sm-10">
+      <input type="date_to_post" class="form-control" id="date_to_post" placeholder="What date do you want this message to post?"></br>
+    </div>
+
+  <div class="form-group">
+      <label for="Location" class="col-sm-2 control-label">Location</label>
+      <div class="col-sm-10">
+      <input type="location" class="form-control" id="location" placeholder="City, State"></br>
+    </div>
+
+     <div class="form-group">
+      <label for="Audience" class="col-sm-2 control-label">Audience</label>
+      <div class="col-sm-10">
+      <input type="audience" class="form-control" id="audience" placeholder="Who is the target customer?">
+    </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  </form>
 <% end %>

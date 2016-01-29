@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :posts
   
+  get 'profile/user_page'
   get 'profiles/:id' => 'profiles#show', as: :profile
-  get 'profile' => 'profiles#index'
 
+
+  devise_for :users
+  resources :profiles
+  resources :posts
+ 
+  get 'profile' => 'profile#user_page'
 
   root 'static_pages#home'
 
@@ -25,7 +29,6 @@ Rails.application.routes.draw do
   get 'settings' => 'static_pages#settings'
 
   get 'contact' => 'static_pages#contact'
-
 
  
 
