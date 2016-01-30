@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @post = Post.new
   end
 
   def _form

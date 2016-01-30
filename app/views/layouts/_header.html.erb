@@ -3,16 +3,14 @@
 		<%= link_to "Giusto", "#", id: "logo" %>
 			<ul class="nav navbar-nav navbar-right">
 				<li><%= link_to "Home", root_path %></li>
-				<li><%= link_to "About", about_path %></li>
-				<li><%= link_to "Video", video_path %></li>
-				<li><%= link_to "Download", download_path %></li>
-				<li><%= link_to "Blog", blog_path %></li>
-				<li><%= link_to "Team", team_path %></li>
-				<li><%= link_to "Street Cred", street_cred_path %></li>
-				<li><%= link_to "Press", press_path %></li>
-				<li><%= link_to "Settings", settings_path %></li>
-				<li><%= link_to "Log In", new_user_session_path %></li>
+				<li><%= link_to "Log in", new_user_session_path %></li>	
 			</ul>
+			<% if user_signed_in? %>
+				<ul class="nav navbar-nav navbar-left">
+					<li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+          			<li><%= link_to "Settings", settings_path %></li>	
+				</ul>
+			<% end %>
 		</nav> 
 	</div>
 </header>

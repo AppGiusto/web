@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get 'profiles/:id' => 'profiles#show', as: :profile
 
 
-  devise_for :users
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  
   resources :profiles
   resources :posts
  
@@ -29,6 +32,8 @@ Rails.application.routes.draw do
   get 'settings' => 'static_pages#settings'
 
   get 'contact' => 'static_pages#contact'
+
+
 
  
 
