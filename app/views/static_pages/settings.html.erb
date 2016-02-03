@@ -11,5 +11,9 @@
 	<ul>
 		<li><%= link_to "Create a New Post", new_post_path, class: "btn-btn-primary"  %></li>
 		<li><%= link_to "See All My Posts", post_path(current_user), class: "btn-btn-primary" %></li>
-
+	</ul>
+<p>My Drink Preferences</p>
+	<ul>
+		<li><%= link_to "Create a New Drink Preference", new_drink_path, class: "btn-btn-primary"  %></li>
+		<li><%= link_to "See All My Drinks", drink_path(current_user), class: "btn-btn-primary" %></li>
 	</ul>

@@ -20,15 +20,14 @@ class PostsController < ApplicationController
   def _form
 
   end
-
  
 
   def create
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to root_path, notice: 'Post was sucessfully posted.' }
+      if @post.save
+        format.html { redirect_to @post, notice: 'Post was sucessfully posted.' }
       else 
         format.html {render :new}
       end

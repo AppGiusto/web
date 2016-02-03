@@ -13,12 +13,16 @@ class ProfilesController < ApplicationController
   def new 
   end
 
+  def edit
+    @user = User.new
+  end
+
   def create
     user = User.find_by(user_params)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to root_path, notice: 'Event was sucessfully posted.' }
+        format.html { redirect_to root_path, notice: 'Profile was sucessfully posted.' }
       else 
         format.html {render :new}
       end

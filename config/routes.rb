@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
-  
+
+
+
+  resources :profiles
+  resources :posts
+  resources :drinks
+ 
   get 'profile/user_page'
-  get 'profiles/:id' => 'profiles#show', as: :profile
+
+  get 'drinks' => 'drinks#show'
 
 
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   
-  resources :profiles
-  resources :posts
- 
   get 'profile' => 'profile#user_page'
 
   root 'static_pages#home'
