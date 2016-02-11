@@ -1,19 +1,13 @@
 Rails.application.routes.draw do
 
-
-
-  resources :profiles
-  resources :posts
-  resources :drinks
  
-  get 'profile/user_page'
+  resources :posts 
+  resources :drinks
+  
+ 
+  get 'profiles/:id' => 'profiles#show', as: :profile
 
-  get 'drinks' => 'drinks#show'
-
-
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
+  devise_for :users 
   
   get 'profile' => 'profile#user_page'
 

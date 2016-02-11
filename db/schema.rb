@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160203182613) do
+ActiveRecord::Schema.define(version: 20160210153232) do
 
   create_table "drinks", force: :cascade do |t|
     t.string   "alcoholic"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 20160203182613) do
     t.string   "image"
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -35,19 +41,16 @@ ActiveRecord::Schema.define(version: 20160203182613) do
     t.string   "date_to_post"
     t.string   "audience"
     t.string   "location"
+    t.string   "user_id"
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "avatar_file_name"
-    t.string   "avatar_content_type"
-    t.integer  "avatar_file_size"
-    t.datetime "avatar_updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,10 +69,10 @@ ActiveRecord::Schema.define(version: 20160203182613) do
     t.string   "name"
     t.string   "zip_code"
     t.string   "profile_image"
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

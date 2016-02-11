@@ -4,8 +4,4 @@ class AddAttachmentImageToDrinks < ActiveRecord::Migration
       t.attachment :image
     end
   end
-
-  def self.down
-    remove_attachment :drinks, :image
-  end
 end

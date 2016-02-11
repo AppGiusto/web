@@ -1,13 +1,13 @@
 class PostsController < ApplicationController
-
-
+before_action :set_post, only: [:create, :show, :edit, :update, :destroy]
+  
   def index
     @posts = Post.all
   end
 
   def show
- 
-  end
+
+   end
 
   def edit
     @post = Post.new
@@ -18,7 +18,6 @@ class PostsController < ApplicationController
   end
 
   def _form
-
   end
  
 
@@ -26,13 +25,14 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
 
     respond_to do |format|
-      if @post.save
+      if @post.save(post_params)
         format.html { redirect_to @post, notice: 'Post was sucessfully posted.' }
       else 
         format.html {render :new}
       end
     end
   end
+  
 
   def update
     respond_to do |format|
@@ -54,13 +54,15 @@ class PostsController < ApplicationController
 private
 
   def set_post
-    @post = Post.find(params[:id])
-    end
+    @post = Post.find_by(params[:id])
   end
-
+  
   def post_params
    params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location)
-    end
+  end
+end
+
+
   
 
 
