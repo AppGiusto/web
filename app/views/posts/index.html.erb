@@ -24,7 +24,6 @@
         <td><%= post.date_to_post %></td>
         <td><%= post.audience%></td>
         <td><%= post.location %></td>
-        <td><%= post.user.email %></td>
         <td><%= link_to 'Show', post %></td>
         <td><%= link_to 'Edit', edit_post_path(post) %></td>
         <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

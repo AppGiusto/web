@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :posts 
   resources :drinks
   
+  get 'posts/:id' => 'posts#show'
  
   get 'profiles/:id' => 'profiles#show', as: :profile
 
