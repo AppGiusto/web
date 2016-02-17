@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   get 'drinks' => 'drinks#show'
 
+  get 'posts/edit'
+
+  get 'drinks/edit'
+
+  get 'posts' => 'posts#show'
+
 
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'

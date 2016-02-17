@@ -2,7 +2,7 @@
 
 <h1>My Drink Preferences</h1>
 
-<table class="table table-bordered">
+<table class="table table-striped table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -20,7 +20,7 @@
         <td><img src= '<%= drink.image %>'></td>
         <td><%= link_to 'Show', drink %></td>
         <td><%= link_to 'Edit', edit_drink_path(drink) %></td>
-        <td><%= link_to 'Destroy', drink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', drink_path(drink), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

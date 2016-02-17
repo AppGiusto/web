@@ -1,22 +1,25 @@
 class DrinksController < ApplicationController
-	 before_filter :authenticate_user!
+before_action :set_drink, only: [:show, :edit, :update, :destroy]
+before_filter :authenticate_user!
 
 
 	def index
 		@drinks = Drink.all	
-	
 	end
 
-	def shows
+	def show
+		#@drinks = Drink.find(params[:id])
 	end
 
 	def new
     	@drink = Drink.new
-  	end
+ 	end
 
 
 	def edit
-		@drink= Drink.new
+	end
+
+	def _form
 	end
 
 	def create
@@ -29,15 +32,30 @@ class DrinksController < ApplicationController
         	format.html {render :new}
       		end
     	end
+  	end
+
+	
+  def update
+    respond_to do |format|
+      if @drink.update(drink_params)
+        format.html { redirect_to @drink, notice: 'Drink was sucessfully updated'}
+      else
+        format.html ( render :edit)
+      end
+    end
   end
 
-	def destroy
-	end
+  def destroy
+    @drink.destroy
+    	respond_to do |format|
+     format.html { redirect_to drinks_url, notice: 'Drink was sucessfully destroyed'}
+    end
+  end
 
-	private
+private
 
 	def set_drink
-		@user = User.find(params[:id])
+		@drink = Drink.find_by(params[:id])
 	end
 
 	def drink_params

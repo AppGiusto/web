@@ -1,7 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>My Drinks</h1> 
+<p>
+	<strong>Drink Name:</strong>
+	<%= @drink.drink_name %>
+</p>
+<p>
+	<strong>Location:</strong>
+	<%= @drink.category %>
+</p>
+<p><%= image_tag @drink.image.url(:thumb) %></p>
 
-
+<%= link_to 'Edit', edit_drink_path(@drink) %> |
+<%= link_to 'See All Drinks', drinks_path %> |
+<%= link_to 'Add New Drinks', new_drink_path %>
 
 

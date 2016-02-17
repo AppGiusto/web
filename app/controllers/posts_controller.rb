@@ -1,16 +1,17 @@
 class PostsController < ApplicationController
-
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!
 
   def index
     @posts = Post.all
   end
 
   def show
- 
+    #@posts = Post.find(params[:id])
   end
 
   def edit
-    @post = Post.new
+   
   end
 
   def new
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to post_url, notice: 'Post was sucessfully destroyed'}
+      format.html { redirect_to posts_url, notice: 'Post was sucessfully destroyed'}
     end
   end
 
@@ -56,11 +57,12 @@ private
   def set_post
     @post = Post.find(params[:id])
     end
-  end
+
 
   def post_params
    params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location)
     end
+  end
   
 
 
