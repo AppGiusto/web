@@ -22,6 +22,11 @@
 	<%= @post.location %>
 </p>
 
+<p>
+	<strong>Posted By:</strong>
+	<%= @post.user_id %>
+</p>
+
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'See All Posts', posts_path %> |
 <%= link_to 'Add New Posts', new_post_path %>

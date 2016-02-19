@@ -60,7 +60,7 @@ private
 
 
   def post_params
-   params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location)
+   params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location, :user_id)
     end
   end
   

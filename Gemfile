@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'simple_form'
 gem 'cancan'
-gem 'protected_attributes'
+
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git" 
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

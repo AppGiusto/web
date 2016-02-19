@@ -16,11 +16,10 @@ Rails.application.routes.draw do
 
   get 'posts' => 'posts#show'
 
+  devise_for :users 
+   
+  get 'users/sign_out' => 'devise/sessions#destroy'
 
-  devise_for :users do
-    get '/users/sign_out' => 'devise/sessions#destroy'
-  end
-  
   get 'profile' => 'profile#user_page'
 
   root 'static_pages#home'

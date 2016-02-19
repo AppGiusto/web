@@ -54,6 +54,8 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.2.0.0)
       sass (~> 3.2)
+    bootstrap3-datetimepicker-rails (4.17.37)
+      momentjs-rails (>= 2.8.1)
     builder (3.2.2)
     byebug (8.2.1)
     cancan (1.6.10)
@@ -126,6 +128,8 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
+    momentjs-rails (2.11.0)
+      railties (>= 3.1)
     multi_json (1.11.2)
     nenv (0.2.0)
     nokogiri (1.6.7.1)
@@ -135,8 +139,6 @@ GEM
       shellany (~> 0.0)
     orm_adapter (0.5.0)
     pg (0.17.1)
-    protected_attributes (1.1.3)
-      activemodel (>= 4.0.1, < 5.0)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -229,6 +231,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (= 3.2.0.0)
+  bootstrap3-datetimepicker-rails (~> 4.17.37)
   byebug
   cancan
   coffee-rails (~> 4.1.0)
@@ -238,9 +241,9 @@ DEPENDENCIES
   jquery-rails
   mini_backtrace (= 0.1.3)
   minitest-reporters (= 1.0.5)
+  momentjs-rails (>= 2.9.0)
   paperclip!
   pg (= 0.17.1)
-  protected_attributes
   rails (= 4.2.4)
   rails_12factor (= 0.0.2)
   sass-rails (~> 5.0)
