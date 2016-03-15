@@ -2,6 +2,13 @@ class DrinksController < ApplicationController
 before_action :set_drink, only: [:show, :edit, :update, :destroy]
 before_filter :authenticate_user!
 
+  def user_drinks
+    @user = User.find(params[:id])
+  end
+
+  def your_drinks
+    @drinks = Drink.all
+  end
 
 	def index
 		@drinks = Drink.all	
@@ -23,7 +30,7 @@ before_filter :authenticate_user!
 	end
 
 	def create
-	   @drink = Drink.new(drink_params)
+	   @drink = current_user.drinks.build(drink_params)
 
     	respond_to do |format|
       		if @drink.save
@@ -55,7 +62,7 @@ before_filter :authenticate_user!
 private
 
 	def set_drink
-		@drink = Drink.find_by(params[:id])
+		@drink = Drink.find(params[:id])
 	end
 
 	def drink_params

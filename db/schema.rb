@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215195747) do
+ActiveRecord::Schema.define(version: 20160307164500) do
 
   create_table "drinks", force: :cascade do |t|
     t.string   "alcoholic"
@@ -25,7 +25,10 @@ ActiveRecord::Schema.define(version: 20160215195747) do
     t.string   "drink_name"
     t.string   "category"
     t.string   "image"
+    t.integer  "user_id"
   end
+
+  add_index "drinks", ["user_id"], name: "index_drinks_on_user_id"
 
   create_table "likes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -42,6 +45,9 @@ ActiveRecord::Schema.define(version: 20160215195747) do
     t.string   "audience"
     t.string   "location"
     t.string   "user_id"
+    t.string   "title"
+    t.string   "author"
+    t.integer  "post_id"
   end
 
   create_table "profiles", force: :cascade do |t|
@@ -51,6 +57,13 @@ ActiveRecord::Schema.define(version: 20160215195747) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "friend_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -73,6 +86,7 @@ ActiveRecord::Schema.define(version: 20160215195747) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.text     "following"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -9,29 +9,13 @@
   </div>
 
   <div class="form-group">
-    <%=  %>
-  </div>
-
-  <div class="form-group">
     <%= f.label :zip_code %><br/>
     <%= f.text_field :zip_code, placeholder: "28269"%>
   </div>
 
-    <div class="form-group">
-    <p>Please select your status:</p>
-    <form role="form">
-     <label class="radio-inline">
-       <input type="radio" name="status">Business
-     </label>
-    <label class="radio-inline">
-     <input type="radio" name="status">Customer
-    </label>
-  </form>
-</div>
-
   <div class="form-group">
-    <%= f.label :image %><br/>
-    <%= f.file_field :image %>
+    <%= f.label :avatar %><br/>
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">

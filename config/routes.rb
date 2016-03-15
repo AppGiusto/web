@@ -1,14 +1,24 @@
 Rails.application.routes.draw do
 
 
+  get 'user_profile' => 'relationships#show_user'
+
+  post 'now_following' => 'relationships#now_following'
+
+  post 'unfollow' => 'relationships#unfollow'
 
   resources :profiles
   resources :posts
   resources :drinks
+  resources :relationships
  
   get 'profile/user_page'
 
   get 'drinks' => 'drinks#show'
+
+  get 'your_drinks' => 'drinks#your_drinks'
+
+  get 'user_drinks' => 'drinks#user_drinks'
 
   get 'posts/edit'
 

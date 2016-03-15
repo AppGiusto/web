@@ -17,6 +17,16 @@ class ProfilesController < ApplicationController
     @user = User.new
   end
 
+  def update
+  respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to @event, notice: 'Profile was sucessfully updated'}
+      else
+        format.html ( render :edit)
+      end
+    end
+  end
+
   def create
     user = User.find_by(user_params)
 
@@ -38,7 +48,7 @@ def user_entry
 end
 
 def user_params
-  params.require(:user).permit(:name, :email, :zip_code, :image, :status)
+  params.require(:user).permit(:name, :email, :zip_code, :avatar, :status)
 end
 end
 

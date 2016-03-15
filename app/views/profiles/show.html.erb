@@ -1,14 +1,52 @@
 
-<h1>My Profile</h1> <!--Individual Profiles Showing Here -->
+<!--Individual Profiles Showing Here -->
+<h1><%= @user.name %>'s Profile</h1>
 <p>Name: <%= @user.name %></p>
 <p>Email: <%= @user.email %></p>
 <p>Zip Code: <%= @user.zip_code %></p>
-<p><%= image_tag @user.image.url(:thumb) %> </p>
+<p><%= image_tag @user.avatar.url(:thumb) %> </p>
 
-<%= link_to "Edit my profile", edit_user_registration_path %>
+<%= @user.relationships.count %> Following
+		<br>
+		<% @user.relationships.each do |relationship| %>
+			<%= link_to relationship.friend.name, profile_path(relationship.friend) %> <br>
+		<% end %>
+		<br>
+		<br>
+		<%= pluralize(@user.inverse_relationships.count, "Follower") %>.
+		<br>
+		<% @user.inverse_friends.each do |friend| %>
+			<%= link_to friend.name, profile_path(friend) %> <br>
+		<% end %>
 
 
+<h2><%= @user.name%>'s Posts</h2>
 
+<div class="allblocks">
+	<% @user.posts.each do |post| %>
+		<div class="panel blocks">
+			<div class="panel-heading">
+				<h5><%= link_to post.user.name, profile_path(post.user) %></h5>
+			</div>
+			<div class="panel-body">
+				<%= post.title %></br>
+  				<%= post.message %></br>
+ 				<p>Time Posted: <%= post.time_to_post %></p>
+  				<p>Date Posted: <%= post.date_to_post %></p>
+  				<p>Drink Audience: <%= post.audience %></p>
+  				<p>Location: <%= post.location %></p></br>	
+  				<% end %>
+  				 <% if current_user.id != @user.id %>
+					<% if current_user.friends.include?(@user) %>
+   				<%= link_to "Unfollow", relationship_path(current_user.relationships.find_by_friend_id(@user)), :method => :delete, class: "button btn btn-primary btn-xs" %>
+					<% else %>
+   						<%= link_to "Follow", relationships_path(:friend_id => @user), method: :post, class: "button btn btn-primary btn-xs" %>
+					<% end %>
+					</div>
+				</div>
+	<!-- </div> -->
+			<% end %>
+		</div>
 
 
 

@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!
 
+  
   def index
     @posts = Post.all
   end
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
  
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     respond_to do |format|
       if @post.save
@@ -60,7 +61,7 @@ private
 
 
   def post_params
-   params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location)
+   params.require(:post).permit(:message, :time_to_post, :date_to_post, :audience, :location, :title, :author, :post_id )
     end
   end
   

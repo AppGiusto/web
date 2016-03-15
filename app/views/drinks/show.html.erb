@@ -8,7 +8,9 @@
 	<strong>Location:</strong>
 	<%= @drink.category %>
 </p>
+<p>Submitted by <%= @drink.user.email %>  </p>
 <p><%= image_tag @drink.image.url(:thumb) %></p>
+
 
 <%= link_to 'Edit', edit_drink_path(@drink) %> |
 <%= link_to 'See All Drinks', drinks_path %> |

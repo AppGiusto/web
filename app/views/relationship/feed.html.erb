@@ -1,0 +1,14 @@
+<h1>Welcome to your Libation Log </h1>
+<p>Hello <%= current_user.name %></p>
+
+<p>Here are your Drink specials!</p>
+
+<div>
+	<% @following_tweets.each do |f| %>
+</div>
+	<div>
+	<p><%= f.message %></p>
+	<p><strong><em><%= f.user.username %></em></strong>/p>
+	</div>
+	<% end %>
+</div>

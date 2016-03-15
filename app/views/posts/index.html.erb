@@ -1,11 +1,13 @@
 
 <p id="notice"><%= notice %></p>
 
-<h1>All Posts</h1>
+<h1>Libation Log</h1>
 
 <table class="table table-striped table-hover" >
   <thead>
     <tr>
+      <th>Title</th>
+      <th>Author</th>
       <th>Message</th>
       <th>Post Time </th>
       <th>Post Date </th>
@@ -18,6 +20,8 @@
   <tbody>
     <% @posts.each do |post| %>
       <tr>
+        <td><%= post.title %></td>
+        <td><%= post.author %></td>
         <td><%= post.message %></td>
         <td><%= post.time_to_post %></td>
         <td><%= post.date_to_post %></td>
@@ -34,3 +38,4 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
